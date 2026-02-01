@@ -7,7 +7,7 @@ function insertMetaTag() {
     metaViewport.content =
         "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0";
     document.getElementsByTagName("head")[0].appendChild(metaViewport);
-    console.log("insert meta tag!");
+    // console.log("insert meta tag!");
 }
 function insertStyleTag() {
     const styleText =
@@ -18,7 +18,7 @@ function insertStyleTag() {
     let textNode = document.createTextNode(styleText);
     style.appendChild(textNode);
     head.appendChild(style);
-    console.log("insert style tag!");
+    // console.log("insert style tag!");
 }
 function isIpadOS() {
     // Use userAgentData instead of deprecated navigator.platform
@@ -213,9 +213,9 @@ function appendDrawerShadow() {
     }
 }
 function appendExpendLeftBtn(id, h1Path, needDelay, delayTime) {
-    console.log(id);
-    console.log(h1Path);
-    console.log(needDelay);
+    // console.log(id);
+    // console.log(h1Path);
+    // console.log(needDelay);
     let expendLeftBtn = document.querySelector("#" + id);
     if (expendLeftBtn) {
         expendLeftBtn.remove();
@@ -470,14 +470,14 @@ class Locales {
             lang = lang.replace(/_/g, "-");
         }
         let filterLang = this.getLang(lang);
-        console.log("filterLang", filterLang);
+        // console.log("filterLang", filterLang);
         let locale = this.locales[filterLang];
         return locale;
     }
 }
 const locales = new Locales();
 function updateLoginPageTips() {
-    console.log(1);
+    // console.log(1);
     let lang = localStorage.getItem("WALangPhonePref");
     lang = JSON.parse(lang);
     if (lang.includes("_")) {
@@ -596,7 +596,7 @@ function mainMutation() {
                                         nextNode?.children[0]?.children[0]
                                             ?.children[0];
                                     if (unreadSpan) {
-                                        console.log(unreadSpan.innerText);
+                                        // console.log(unreadSpan.innerText);
                                     }
                                 }
                             }
@@ -651,7 +651,7 @@ function mainMutation() {
                         "#app div.x10l6tqk.x13vifvy.x1o0tod.x78zum5.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.x47corl > div._aigw > div > span",
                     )
                 ) {
-                    console.log("currentTabIndex", currentTabIndex);
+                    // console.log("currentTabIndex", currentTabIndex);
                     if (mutation.addedNodes.length > 0) {
                         if (!globalData.isIpadOS) {
                             if (
@@ -808,7 +808,7 @@ function mainMutation() {
                     )
                 ) {
                     if (mutation.addedNodes.length > 0) {
-                        console.log(mutation.addedNodes[0]);
+                        // console.log(mutation.addedNodes[0]);
                         if (
                             mutation.addedNodes[0] ===
                             document.querySelector(
@@ -854,7 +854,7 @@ function mainMutation() {
                     const landingWrapper = document.querySelector(
                         "#app div._aiwn > div > div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.x1nhvcw1.xdt5ytf.x1dr59a3.xw2csxc.x1odjw0f.xyinxu5.xp48ta0.x1g2khh7.xtssl2i.xp9ttsr.x6s0dn4.x9f619.xdounpk.x1hql6x6.xe4h88v.x1g96xxu.xxfop4",
                     );
-                    console.log("landingWrapperV2", landingWrapper);
+                    // console.log("landingWrapperV2", landingWrapper);
                     if (landingWrapper) {
                         globalData.isScanQRLogin = true;
                         updateLoginPageTips();
@@ -874,7 +874,7 @@ function mainMutation() {
                     const landingWrapper = document.querySelector(
                         "#app > div > div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.x78zum5.xozqiw3.x1oa3qoh.x12fk4p8.x1nhvcw1.xdt5ytf.x1dr59a3.xw2csxc.x1odjw0f.xyinxu5.xp48ta0.x1g2khh7.xtssl2i.xp9ttsr.x6s0dn4.x9f619.xdounpk.x1hql6x6.xe4h88v.x1g96xxu.x1t470q2",
                     );
-                    console.log("landingWrapperV2", landingWrapper);
+                    // console.log("landingWrapperV2", landingWrapper);
                     if (landingWrapper) {
                         globalData.isScanQRLogin = true;
                         updateLoginPageTips();
@@ -928,7 +928,7 @@ function mainMutation() {
                         if (
                             document.querySelector("#app div.x1lliihq ._akau")
                         ) {
-                            console.log("扫码");
+                            // console.log("扫码");
                             html.setAttribute(
                                 "data-login-type",
                                 LOGIN_TYPE.QR_CODE,
@@ -940,7 +940,7 @@ function mainMutation() {
                                 "#app div.x1lliihq > div > div > div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.xeuugli.x2lwn1j.xozqiw3.x1oa3qoh.x12fk4p8:nth-child(4)",
                             )
                         ) {
-                            console.log("手机号");
+                            // console.log("手机号");
                             html.setAttribute(
                                 "data-login-type",
                                 LOGIN_TYPE.PHONE_NUMBER,
@@ -951,7 +951,7 @@ function mainMutation() {
                                 "div.x1c4vz4f.xs83m0k.xdl72j9.x1g77sc7.xeuugli.x2lwn1j.xozqiw3.xamitd3.x7v7x1q.xh8yej3.x1ndca9r.x1a2cdl4.xnhgr82.x1qt0ttw.xgk8upj.x10wjd1d.x1hq5gj4.x1p5oq8j.xwxc41k",
                             )
                         ) {
-                            console.log("验证码");
+                            // console.log("验证码");
                             html.setAttribute(
                                 "data-login-type",
                                 LOGIN_TYPE.ACTIVE_CODE,
@@ -1018,7 +1018,7 @@ function mainMutation() {
                 ) {
                     if (!globalData.isIpadOS) {
                         if (mutation.addedNodes.length > 0) {
-                            console.log(currentTabIndex);
+                            // console.log(currentTabIndex);
                             if (currentTabIndex === 3) {
                                 appendExpendLeftBtn(
                                     "settingExpendLeftBtn",
@@ -1096,7 +1096,7 @@ function mainMutation() {
                 if (mutation.target == document.querySelector("div._ajwt")) {
                     const dialog = document.querySelector("._ahmw");
                     if (dialog) {
-                        console.log("编辑弹窗");
+                        // console.log("编辑弹窗");
                         dialog.style.top = "1px";
                         setTimeout(() => {
                             dialog.style.top = 0;
@@ -1148,7 +1148,7 @@ function mainMutation() {
                         let betaCloseChat = document.querySelector(
                             `#app ._ak4w._ak4x._ap4-._ap4_ ul div:nth-child(${buttonIndex}) li`,
                         );
-                        console.log(mainCloseChat);
+                        // console.log(mainCloseChat);
                         if (betaCloseChat) {
                             betaCloseChat.addEventListener(
                                 "click",
@@ -1242,7 +1242,7 @@ function mainMutation() {
                         );
                         navBtnBeta.forEach((e, i) => {
                             e.addEventListener("click", function () {
-                                console.log(e);
+                                // console.log(e);
                                 currentTabIndex = i;
                                 document.documentElement.classList.remove(
                                     "nav-open",
@@ -1275,8 +1275,8 @@ document.createElement = function (tagName) {
         Object.defineProperty(element, "download", {
             set: function (value) {
                 if (this.href && this.href.startsWith("blob:")) {
-                    console.log(value);
-                    console.log(this.href);
+                    // console.log(value);
+                    // console.log(this.href);
                     processBlobURL(this.href, value).catch((error) => {
                         console.error("处理Blob URL时出错:", error);
                     });
@@ -1423,7 +1423,7 @@ function addInputListener() {
     }
 }
 function addBackBtn() {
-    console.log(2);
+    // console.log(2);
     const oldBackBtn = document.getElementById("backBtn");
     if (oldBackBtn) return;
     function appendChild(avatar2) {
@@ -1460,14 +1460,14 @@ function addBackBtn() {
     if (avatar) {
         appendChild(avatar);
     } else {
-        console.log("兼容旧版本avatar");
+        // console.log("兼容旧版本avatar");
         const legacyAvatar = document.querySelector(
             "#main > header .x1c4vz4f.x2lah0s.xdl72j9.x1i4ejaq.x1y332i5",
         );
         if (legacyAvatar) {
             appendChild(legacyAvatar);
         } else {
-            console.log("找不到用户头像图标元素");
+            // console.log("找不到用户头像图标元素");
         }
     }
 }
@@ -1518,12 +1518,12 @@ function doneAfterContactListComplete() {
     }
 }
 function doneAfterArchivingContactListComplete(target, retryTime = 0) {
-    console.log("doneAfterArchivingContactListComplete");
+    // console.log("doneAfterArchivingContactListComplete");
     if (retryTime === 10) {
-        console.error(
-            "[doneAfterArchivingContactListComplete]: 超过归档重试次数" +
-                retryTime,
-        );
+        // console.error(
+        //     "[doneAfterArchivingContactListComplete]: 超过归档重试次数" +
+        //         retryTime,
+        // );
         return;
     }
     if (!target) {
@@ -1577,7 +1577,7 @@ let keyboardOpenedScrollTop = 0;
 function scrollChatList() {
     const chatList = document.querySelector("._ajyl");
     keyboardOpenedScrollTop = chatList.scrollTop;
-    console.log("keyboardOpenedScrollTop", keyboardOpenedScrollTop);
+    // console.log("keyboardOpenedScrollTop", keyboardOpenedScrollTop);
 }
 function watchKeyboard() {
     let flag = false;
@@ -1626,17 +1626,17 @@ function watchKeyboard() {
         }
     };
 }
-console.log("document.readyState", document.readyState);
+// console.log("document.readyState", document.readyState);
 let isRegister = false;
 if (document.readyState === "loading" && !isRegister) {
     window.addEventListener("DOMContentLoaded", () => {
-        console.log("DOMContentLoaded");
+        // console.log("DOMContentLoaded");
         mainMutation();
     });
     isRegister = true;
 }
 if (document.readyState === "interactive" && !isRegister) {
-    console.log("DOMContentLoaded");
+    // console.log("DOMContentLoaded");
     mainMutation();
     isRegister = true;
 }
@@ -1681,11 +1681,11 @@ window.onload = function () {
     insertMetaTag();
     insertStyleTag();
     insertDir();
-    console.log("isIpadOS", globalData.isIpadOS);
+    // console.log("isIpadOS", globalData.isIpadOS);
     if (globalData.isIpadOS) {
         document.documentElement.setAttribute("device", "ipad");
     }
-    console.log("document.readyState", document.readyState);
+    // console.log("document.readyState", document.readyState);
     if (!globalData.isIpadOS) {
         let listenWindowScroll = function () {
             let fixedChatHeader = document.querySelector("#main > header");
