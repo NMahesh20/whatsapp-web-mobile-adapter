@@ -48,15 +48,15 @@ jobs:
               run: |
                   npx terser waa.js -o waa-min.js -c -m
                   echo "Minified waa.js to waa-min.js"
-                  ls -lh waa.js waa-min.js
+                  cp waa-min.js waa.js
 
             - name: Create extension artifact
               run: |
                   mkdir -p dist
                   cp manifest.json dist/
-                  cp waa-min.js dist/
+                  cp waa.js dist/
                   cp -r icons dist/
-                  zip -r whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi manifest.json waa-min.js icons/
+                  zip -r whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi manifest.json waa.js icons/
 
             - name: Upload artifact
               uses: actions/upload-artifact@v4

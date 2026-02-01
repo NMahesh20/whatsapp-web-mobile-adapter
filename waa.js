@@ -1,7 +1,4 @@
 function insertMetaTag() {
-    Object.defineProperty(navigator, "userAgent", {
-        value: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-    });
     const metaViewport = document.createElement("meta");
     metaViewport.name = "viewport";
     metaViewport.content =
@@ -49,7 +46,7 @@ class Logger {
     }
     debug(str) {
         let date = getFormatDate(new Date());
-        console.log(`[DEBUG] ${date} [${this.module}] ${str}`);
+        // console.log(`[DEBUG] ${date} [${this.module}] ${str}`);
     }
     warn(str) {
         let date = getFormatDate(new Date());
@@ -231,7 +228,7 @@ function appendExpendLeftBtn(id, h1Path, needDelay, delayTime) {
                     newDom.classList.add("expend-btn");
                     newDom.id = id;
                     newDom.innerHTML =
-                        '<svg t="1725416924812" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1830" width="20" height="20"><path d="M96 160h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z" fill="#111b21" p-id="1831"></path></svg>';
+                        '<svg t="1725416924812" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="https://www.w3.org/2000/svg" p-id="1830" width="20" height="20"><path d="M96 160h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z" fill="#111b21" p-id="1831"></path></svg>';
                     newDom.onclick = function () {
                         document.documentElement.classList.add("nav-open");
                     };
@@ -254,7 +251,7 @@ function appendExpendLeftBtn(id, h1Path, needDelay, delayTime) {
             newDom.classList.add("expend-btn");
             newDom.id = id;
             newDom.innerHTML =
-                '<svg t="1725416924812" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1830" width="20" height="20"><path d="M96 160h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z" fill="#111b21" p-id="1831"></path></svg>';
+                '<svg t="1725416924812" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="https://www.w3.org/2000/svg" p-id="1830" width="20" height="20"><path d="M96 160h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z m0 320h832c19.2 0 32 12.8 32 32s-12.8 32-32 32h-832c-19.2 0-32-12.8-32-32s12.8-32 32-32z" fill="#111b21" p-id="1831"></path></svg>';
             newDom.onclick = function () {
                 document.documentElement.classList.add("nav-open");
             };
@@ -1431,7 +1428,7 @@ function addBackBtn() {
         if (avatarParent) {
             const newNode = document.createElement("div");
             newNode.innerHTML =
-                '<svg t="1658371755384" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2324" width="32" height="32"><path d="M671.968 912c-12.288 0-24.576-4.672-33.952-14.048L286.048 545.984c-18.752-18.72-18.752-49.12 0-67.872l351.968-352c18.752-18.752 49.12-18.752 67.872 0 18.752 18.72 18.752 49.12 0 67.872l-318.016 318.048 318.016 318.016c18.752 18.752 18.752 49.12 0 67.872C696.544 907.328 684.256 912 671.968 912z" p-id="2325" fill="#58656e"></path></svg>';
+                '<svg t="1658371755384" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="https://www.w3.org/2000/svg" p-id="2324" width="32" height="32"><path d="M671.968 912c-12.288 0-24.576-4.672-33.952-14.048L286.048 545.984c-18.752-18.72-18.752-49.12 0-67.872l351.968-352c18.752-18.752 49.12-18.752 67.872 0 18.752 18.72 18.752 49.12 0 67.872l-318.016 318.048 318.016 318.016c18.752 18.752 18.752 49.12 0 67.872C696.544 907.328 684.256 912 671.968 912z" p-id="2325" fill="#58656e"></path></svg>';
             newNode.id = "backBtn";
             newNode.addEventListener(
                 "click",
