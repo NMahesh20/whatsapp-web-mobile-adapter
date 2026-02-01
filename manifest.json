@@ -9,6 +9,8 @@
         "96": "icons/wa-web-96.png"
     },
 
+    "permissions": ["webRequest", "webRequestBlocking"],
+
     "browser_specific_settings": {
         "gecko": {
             "id": "whatsapp-web-mobile-adapter@mahesh",
@@ -16,6 +18,10 @@
                 "required": ["none"]
             }
         }
+    },
+
+    "background": {
+        "scripts": ["background.js"]
     },
 
     "content_scripts": [
