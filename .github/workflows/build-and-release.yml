@@ -46,17 +46,18 @@ jobs:
 
             - name: Minify waa.js
               run: |
-                  npx terser waa.js -o waa.min.js -c -m
-                  echo "Minified waa.js to waa.min.js"
-                  ls -lh waa.js waa.min.js
+                  npx terser waa.js -o waa-min.js -c -m
+                  echo "Minified waa.js to waa-min.js"
+                  ls -lh waa.js waa-min.js
 
             - name: Create extension artifact
               run: |
                   mkdir -p dist
                   cp manifest.json dist/
-                  cp waa.min.js dist/
+                  cp waa-min.js dist/
                   cp -r icons dist/
                   ls -lh dist/
+                  zip -r whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi dist/*
 
             - name: Upload artifact
               uses: actions/upload-artifact@v4
@@ -64,3 +65,9 @@ jobs:
                   name: whatsapp-web-adapter-${{ steps.version.outputs.version }}
                   path: dist/
                   retention-days: 90
+            - name: Create release on GitHub
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: "*.xpi" # Path to your build artifact
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -3,13 +3,14 @@
     "manifest_version": 3,
     "name": "WhatsApp Web Mobile Adapter",
     "version": "1.0",
-    "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/borderify",
+    "homepage_url": "https://github.com/NMahesh20/whatsapp-web-mobile-adapter",
     "icons": {
-        "96": "icons/wa-web.png"
+        "48": "icons/wa-web.png"
     },
 
     "browser_specific_settings": {
         "gecko": {
+            "id": "whatsapp-web-mobile-adapter@mahesh",
             "data_collection_permissions": {
                 "required": ["none"]
             }
@@ -19,7 +20,7 @@
     "content_scripts": [
         {
             "matches": ["https://web.whatsapp.com/*"],
-            "js": ["waa.min.js"]
+            "js": ["waa-min.js"]
         }
     ]
 }
