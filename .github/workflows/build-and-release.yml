@@ -56,8 +56,7 @@ jobs:
                   cp manifest.json dist/
                   cp waa-min.js dist/
                   cp -r icons dist/
-                  ls -lh dist/
-                  zip -r whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi dist/*
+                  zip -r whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi manifest.json waa-min.js icons/
 
             - name: Upload artifact
               uses: actions/upload-artifact@v4
@@ -68,6 +67,6 @@ jobs:
             - name: Create release on GitHub
               uses: softprops/action-gh-release@v2
               with:
-                  files: "*.xpi" # Path to your build artifact
+                  files: "*.xpi"
               env:
                   GITHUB_TOKEN: ${{ secrets.RELEASE_PAT }}
