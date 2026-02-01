@@ -1,6 +1,6 @@
 # WhatsApp Web Mobile Adapter
-
-This Firefox extension adapts WhatsApp Web for mobile Firefox by spoofing the device as a PC and applying mobile-friendly overrides.
+WhatsApp web is not accessible in mobile. So, to enable it we have request the desktop site. But in desktop site, the UI isn't that well for a mobile.
+This Firefox extension adapts WhatsApp Web for mobile by spoofing the device as a PC and applying mobile-friendly overrides.
 
 ## Installation
 
@@ -19,10 +19,8 @@ This Firefox extension adapts WhatsApp Web for mobile Firefox by spoofing the de
 ## Files
 
 - `manifest.json`: Extension manifest.
-- `background.js`: Background script (minimal).
-- `content.js`: Content script that injects spoofing and styles.
-- `styles.css`: Additional CSS.
-- `webextension-polyfill.js`: Polyfill for WebExtensions API.
+- `background.js`: Background script which intercept the request headers and change the user-agent to desktop version.
+- `waa.js`: Content script that injects spoofing and styles.
 - `icons/`: Icon files (48x48 and 96x96 PNGs needed).
 
 ## Building
@@ -37,4 +35,4 @@ Then install the .xpi file in Firefox via `about:addons` > Install Add-on From F
 
 ## Note
 
-Icons are not included; you can add 48x48 and 96x96 PNG files in icons/ folder and update manifest.json accordingly.
+The browser may inject the User Agent of its own, so workaround it to display the desktop site first and then continue.
