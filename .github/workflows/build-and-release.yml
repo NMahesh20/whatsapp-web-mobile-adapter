@@ -53,12 +53,9 @@ jobs:
             - name: Create extension artifact
               run: |
                   mkdir -p dist
-                  zip -r dist/whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi \
-                    manifest.json \
-                    waa.min.js \
-                    icons/ \
-                    -x "*.git*" "*.DS_Store" "*.md" "node_modules/*"
-                  echo "Created extension archive"
+                  cp manifest.json dist/
+                  cp waa.min.js dist/
+                  cp -r icons dist/
                   ls -lh dist/
 
             - name: Upload artifact
@@ -67,33 +64,3 @@ jobs:
                   name: whatsapp-web-adapter-${{ steps.version.outputs.version }}
                   path: dist/
                   retention-days: 90
-
-            - name: Create Release
-              if: startsWith(github.ref, 'refs/tags/')
-              uses: softprops/action-gh-release@v1
-              with:
-                  files: dist/whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi
-                  body: |
-                      # WhatsApp Web Mobile Adapter v${{ steps.version.outputs.version }}
-
-                      This release includes:
-                      - Minified JavaScript for faster loading
-                      - Updated manifest with version ${{ steps.version.outputs.version }}
-                      - Ready-to-install .xpi extension file
-
-                      ## Installation
-                      1. Download the `.xpi` file
-                      2. Open Firefox on Android
-                      3. Navigate to `about:addons`
-                      4. Click the gear icon and select "Install Add-on From File"
-                      5. Select the downloaded `.xpi` file
-                  draft: false
-                  prerelease: false
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Display artifact info
-              run: |
-                  echo "Build completed successfully!"
-                  echo "Version: ${{ steps.version.outputs.version }}"
-                  echo "Artifact location: dist/whatsapp-web-adapter-${{ steps.version.outputs.version }}.xpi"
