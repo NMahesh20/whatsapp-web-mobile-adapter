@@ -9,7 +9,7 @@
         "96": "icons/wa-web-96.png"
     },
 
-    "permissions": ["webRequest", "webRequestBlocking"],
+    "permissions": ["webRequest", "webRequestBlocking", "webNavigation"],
 
     "browser_specific_settings": {
         "gecko": {
